@@ -51,3 +51,8 @@ output "vpn_server_public_ip" {
 output "vpn_server_private_ip" {
   value = aws_instance.vpn_server.private_ip
 }
+
+### EKS ###
+# output "eks_arn" {
+#   value = module.eks.cluster_arn
+# }

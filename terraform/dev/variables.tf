@@ -42,3 +42,14 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "aws_auth_users" {
+  description = "Developers with access to the dev K8S cluster and the container registries"
+  default = [
+    {
+      userarn  = "arn:aws:iam::463470949045:user/candidate.triet"
+      username = "candidate.triet"
+      groups   = ["system:masters"]
+    }
+  ]
+}
