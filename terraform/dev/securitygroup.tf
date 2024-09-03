@@ -43,17 +43,3 @@ resource "aws_security_group" "vpn_access_server" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
-### EKS Cluster ###
-# resource "aws_security_group" "additional" {
-#   name_prefix = "${local.name}-additional"
-#   vpc_id      = module.vpc.vpc_id
-
-#   ingress {
-#     from_port = 22
-#     to_port   = 22
-#     protocol  = "tcp"
-#     cidr_blocks = ["10.1.0.0/16"]
-#   }
-#   tags = local.tags
-# }

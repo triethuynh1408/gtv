@@ -53,6 +53,6 @@ output "vpn_server_private_ip" {
 }
 
 ### EKS ###
-# output "eks_arn" {
-#   value = module.eks.cluster_arn
-# }
+output "eks_arn" {
+  value = module.eks.cluster_arn
+}

@@ -1,0 +1,49 @@
+fullnameOverride: "kibana"
+
+global:
+  storageClass: "ebs-sc"
+
+image:
+  registry: docker.io
+  repository: bitnami/kibana
+  tag: 8.5.1-debian-11-r0
+  digest: ""
+
+replicaCount: 1
+
+updateStrategy:
+  type: Recreate
+
+persistence:
+  enabled: true
+  accessModes:
+    - ReadWriteOnce
+  size: 10Gi
+    
+elasticsearch:
+  hosts:
+   - elasticsearch
+  port: 9200
+  
+  security:
+    auth:
+      enabled: true
+      createSystemUser: true
+      kibanaPassword: "p8nLFWqmjCfq1pXZAu3x"
+      elasticsearchPasswordSecret: "elasticsearch"
+
+service:
+  ports:
+    http: 5601
+  type: LoadBalancer 
+  annotations: 
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internal 
+    service.beta.kubernetes.io/aws-load-balancer-type: alb 
+
+nodeSelector:
+  nodeType: non-disruption
+
+tolerations:
+  - key: dedicated
+    operator: Equal
+    value: statefulset

@@ -26,7 +26,6 @@ module "vpc" {
   private_subnet_tags = {
     "kubernetes.io/cluster/${local.name}" = "shared"
     "kubernetes.io/role/internal-elb"     = 1
-    "karpenter.sh/discovery"              = local.name
   }
 
   tags = local.tags
