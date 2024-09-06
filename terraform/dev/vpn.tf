@@ -1,6 +1,6 @@
 resource "aws_instance" "vpn_server" {
   ami                         = "ami-0c20b8b385217763f" # Ubuntu AMI in ap-southeast-1
-  instance_type               = "t3.small"
+  instance_type               = "t3.medium"
   vpc_security_group_ids      = ["${aws_security_group.vpn_access_server.id}"]
   associate_public_ip_address = true
   subnet_id                   = module.vpc.public_subnets[0]
