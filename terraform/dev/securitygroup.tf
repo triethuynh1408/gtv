@@ -1,4 +1,4 @@
-### Security group for VPN Server ###
+## Security group for VPN Server ###
 resource "aws_security_group" "vpn_access_server" {
   name        = "${var.project}-${var.env}-vpn-server"
   description = "Security group for VPN access server"
